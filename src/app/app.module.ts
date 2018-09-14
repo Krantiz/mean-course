@@ -5,14 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { PostCreateComponent } from './posts/post-create/post-create.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule

@@ -1,22 +1,26 @@
 <mat-card>
-	<mat-form-field>
-	    <input matInput placeholder="Add User Name" [(ngModel)]="enteredUserName" required>
-	</mat-form-field>
-	<br>
-	<mat-form-field>
-	  	<mat-select placeholder="Add Status" [(ngModel)]="enteredStatus">
-	    	<mat-option *ngFor="let status of statusOptions" [value]="status.value">
-	      		{{status.value}}
-	    	</mat-option>
-	  	</mat-select>
-	</mat-form-field>
-	<br>
-	<mat-form-field>
-	    <input matInput placeholder="Add Remark" [(ngModel)]="enteredRemark">
-	</mat-form-field>
-	<br>
-	<button mat-raised-button color="accent" (click)="onAddAttendence()">
-		Submit
-	</button>
+	<form (submit)="onAddAttendence(postLog)" #postLog="ngForm">
+		<mat-form-field>
+		    <input matInput placeholder="Add User Name" ngModel name="un" #un="ngModel" required>
+		    <mat-error *ngIf="un.invalid">Please Add UserName</mat-error>
+		</mat-form-field>
+		<br>
+		<mat-form-field>
+		  	<mat-select placeholder="Add Status" ngModel name="status" #status="ngModel" required>
+		    	<mat-option *ngFor="let status of statusOptions" [value]="status.value">
+		      		{{status.value}}
+		    	</mat-option>
+		  	</mat-select>
+		    <mat-error *ngIf="status.invalid">Please Select Status</mat-error>
+		</mat-form-field>
+		<br>
+		<mat-form-field>
+		    <input matInput placeholder="Add Remark" ngModel name="remark">
+		</mat-form-field>
+		<br>
+		<button mat-raised-button color="accent" type="submit">
+			Submit
+		</button>
+	</form>
 </mat-card>
 <p>{{newPost}}</p>

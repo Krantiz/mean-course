@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { Post } from '../post.model';
 
 @Component({
@@ -21,11 +23,17 @@ export class PostCreateComponent implements OnInit {
   	enteredStatus = '';
   	enteredRemark = '';
     @Output() logCreated = new EventEmitter<Post>();
-  	onAddAttendence(){
+
+
+    
+  	onAddAttendence(form: NgForm){
+      if (form.invalid) {
+          return;
+      }
   		const log: Post = {
-  			un: this.enteredUserName,
-  			status: this.enteredStatus,
-  			remark: this.enteredRemark,
+  			un: form.value.un,
+  			status: form.value.status,
+  			remark: form.value.remark,
   		};
   		console.log(log);
       this.logCreated.emit(log);

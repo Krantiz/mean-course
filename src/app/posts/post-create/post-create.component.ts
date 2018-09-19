@@ -28,6 +28,8 @@ export class PostCreateComponent {
           return;
       }
       this.postService.addPost(form.value.un, form.value.status, form.value.remark);
+
+      form.resetForm();
   	}
 
 }

@@ -1,9 +1,22 @@
 <mat-card>
 	<mat-form-field>
-	    <textarea matInput placeholder="Add Post" rows="6" [(ngModel)]="enteredValue"></textarea> 
-	</mat-form-field><br>
-	<button mat-raised-button color="accent" (click)="onAddPost()">
-		Save Post
+	    <input matInput placeholder="Add User Name" [(ngModel)]="enteredUserName" required>
+	</mat-form-field>
+	<br>
+	<mat-form-field>
+	  	<mat-select placeholder="Add Status" [(ngModel)]="enteredStatus">
+	    	<mat-option *ngFor="let status of statusOptions" [value]="status.value">
+	      		{{status.value}}
+	    	</mat-option>
+	  	</mat-select>
+	</mat-form-field>
+	<br>
+	<mat-form-field>
+	    <input matInput placeholder="Add Remark" [(ngModel)]="enteredRemark">
+	</mat-form-field>
+	<br>
+	<button mat-raised-button color="accent" (click)="onAddAttendence()">
+		Submit
 	</button>
 </mat-card>
 <p>{{newPost}}</p>

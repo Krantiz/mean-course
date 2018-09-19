@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-post-create',
@@ -6,14 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent implements OnInit {
-  constructor() { }
-  ngOnInit() {
-  }
-
-  newPost = 'No Content';
-  enteredValue = '';
-  onAddPost(){
-	this.newPost = this.enteredValue;
-  }
+  	constructor() { }
+  	ngOnInit() {
+  	}
+	
+  	statusOptions = [
+  			{'value': 'Present'},
+  			{'value': 'Absent'},
+  			{'value': 'Sick Leave'},
+  			{'value': 'Work From Home'},
+  		];
+  	enteredUserName = '';
+  	enteredStatus = '';
+  	enteredRemark = '';
+    @Output() logCreated = new EventEmitter()
+  	onAddAttendence(){
+  		const log = {
+  			un: this.enteredUserName,
+  			status: this.enteredStatus,
+  			remark: this.enteredRemark,
+  		};
+  		console.log(log);
+      this.logCreated.emit(log);
+  	}
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-post-list',
@@ -12,9 +12,10 @@ export class PostListComponent implements OnInit {
   ngOnInit() {
   }
 
-  posts = [
-  	{'empName': 'emp1', 'status': 'present', 'remark': 'Remark1'},
-  	{'empName': 'emp2', 'status': 'present', 'remark': 'Remark2'},
-  	{'empName': 'emp3', 'status': 'present', 'remark': 'Remark3'}
-  ]
+  // posts = [
+  // 	{'empName': 'emp1', 'status': 'present', 'remark': 'Remark1'},
+  // 	{'empName': 'emp2', 'status': 'present', 'remark': 'Remark2'},
+  // 	{'empName': 'emp3', 'status': 'present', 'remark': 'Remark3'}
+  // ]
+  @Input() logs = [];
 }

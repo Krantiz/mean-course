@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 
+import { Post } from './posts/post.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  storedLog = [];
+  storedLog: Post[] = [];
 
   onLogAdded(log){
   	this.storedLog.push(log);

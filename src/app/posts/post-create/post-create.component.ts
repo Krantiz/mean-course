@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Post } from '../post.model';
 
 @Component({
   selector: 'app-post-create',
@@ -19,9 +20,9 @@ export class PostCreateComponent implements OnInit {
   	enteredUserName = '';
   	enteredStatus = '';
   	enteredRemark = '';
-    @Output() logCreated = new EventEmitter()
+    @Output() logCreated = new EventEmitter<Post>();
   	onAddAttendence(){
-  		const log = {
+  		const log: Post = {
   			un: this.enteredUserName,
   			status: this.enteredStatus,
   			remark: this.enteredRemark,

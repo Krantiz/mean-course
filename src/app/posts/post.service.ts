@@ -27,7 +27,14 @@ export class PostService {
 
 	addPost(un: string, status: string, remark: string) {
 		const log: Post = {id: null, un: un, status: status, remark: remark};
-		this.logs.push(log);
-		this.logsUpdated.next([...this.logs]);
+
+		this.http.post<{message: string}>('http://localhost:3000/api/posts', log)
+		.subscribe((responseData) => {
+			console.log(responseData.message);
+			this.logs.push(log);
+			this.logsUpdated.next([...this.logs]);
+		});
+
+		
 	}
 }

@@ -30,6 +30,10 @@ export class PostListComponent implements OnInit, OnDestroy {
             });//listener to observe change
   }
 
+  onDeleteLog(logId) {
+    this.postService.deletePost(logId);
+  }
+
   ngOnDestroy() {
     this.logsSub.unsubscribe();
   }

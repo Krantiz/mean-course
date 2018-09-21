@@ -2,13 +2,15 @@
 	<mat-expansion-panel *ngFor="let log of logs">
 	    <mat-expansion-panel-header>
 	      	<mat-panel-title>
-	        	<b>Name</b>: {{log.un}}
+	        	<b>Name</b>: {{log.un}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    		<b>Status</b>: {{log.status}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       			<b>Remark</b>: {{log.remark}}
 	      	</mat-panel-title>
 	      	<!-- <mat-panel-description>
 	        	
 	      	</mat-panel-description> -->
 	    </mat-expansion-panel-header>
-	    <p><b>Remark</b>: {{log.remark}}</p>
-	    <p><b>Status</b>: {{log.status}}</p>
+	    <!-- <button mat-button>Click me!</button> -->
+	    <button mat-button color="red" (click)="onDeleteLog(log.id)">DELETE</button>
   	</mat-expansion-panel>
 </mat-accordion>

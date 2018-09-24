@@ -30,8 +30,7 @@ export class PostService {
 			});
 		}))
 		.subscribe((transformedLogData) => {
-				console.log(transformedLogData);
-
+			// console.log(transformedLogData);
 			this.logs = transformedLogData;
 			this.logsUpdated.next([...this.logs]);
 		});
@@ -44,9 +43,11 @@ export class PostService {
 	addPost(un: string, status: string, remark: string) {
 		const log: Post = {id: null, un: un, status: status, remark: remark};
 
-		this.http.post<{message: string}>('http://localhost:3000/api/posts', log)
+		this.http.post<{message: string, postId: string}>('http://localhost:3000/api/posts', log)
 		.subscribe((responseData) => {
 			// console.log(responseData.message);
+			const id = responseData.postId;
+			log.id = id;
 			this.logs.push(log);
 			this.logsUpdated.next([...this.logs]);
 		});

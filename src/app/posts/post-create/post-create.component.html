@@ -1,23 +1,32 @@
 <mat-card>
+
 	<form (submit)="onAddAttendence(postLog)" #postLog="ngForm">
-		<mat-form-field>
-		    <input matInput placeholder="Add User Name" ngModel name="un" #un="ngModel" required>
-		    <mat-error *ngIf="un.invalid">Please Add UserName</mat-error>
-		</mat-form-field>
-		<br>
-		<mat-form-field>
-		  	<mat-select placeholder="Add Status" ngModel name="status" #status="ngModel" required>
-		    	<mat-option *ngFor="let status of statusOptions" [value]="status.value">
-		      		{{status.value}}
-		    	</mat-option>
-		  	</mat-select>
-		    <mat-error *ngIf="status.invalid">Please Select Status</mat-error>
-		</mat-form-field>
-		<br>
-		<mat-form-field>
-		    <input matInput placeholder="Add Remark" ngModel name="remark">
-		</mat-form-field>
-		<br>
+		<mat-grid-list cols="3" rowHeight="2:1">
+		  	<mat-grid-tile>
+		  		<mat-form-field>
+				    <input matInput placeholder="Add User Name" ngModel name="un" #un="ngModel" required>
+				    <mat-error *ngIf="un.invalid">Please Add UserName</mat-error>
+				</mat-form-field>
+				<br>
+		  	</mat-grid-tile>
+		  	<mat-grid-tile>
+		  		<mat-form-field>
+				  	<mat-select placeholder="Add Status" ngModel name="status" #status="ngModel" required>
+				    	<mat-option *ngFor="let status of statusOptions" [value]="status.value">
+				      		{{status.value}}
+				    	</mat-option>
+				  	</mat-select>
+				    <mat-error *ngIf="status.invalid">Please Select Status</mat-error>
+				</mat-form-field>
+				<br>
+		  	</mat-grid-tile>
+		  	<mat-grid-tile>
+			  	<mat-form-field>
+			    	<input matInput placeholder="Add Remark" ngModel name="remark">
+				</mat-form-field>
+				<br>
+		  	</mat-grid-tile>
+		</mat-grid-list>
 		<button mat-raised-button color="accent" type="submit">
 			Submit
 		</button>

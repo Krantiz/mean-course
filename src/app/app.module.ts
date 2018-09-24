@@ -8,7 +8,8 @@ import { MatInputModule,
 		MatButtonModule, 
 		MatToolbarModule, 
 		MatExpansionModule,
-		MatSelectModule } from '@angular/material';
+		MatSelectModule,
+    MatGridListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
@@ -34,7 +35,8 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     MatToolbarModule,
     MatExpansionModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   // providers: [PostService],
   providers: [],

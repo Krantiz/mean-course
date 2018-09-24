@@ -12,5 +12,6 @@
 	    </mat-expansion-panel-header>
 	    <!-- <button mat-button>Click me!</button> -->
 	    <button mat-button color="red" (click)="onDeleteLog(log.id)">DELETE</button>
+	    <button mat-button [routerLink]="['/edit', log.id]">EDIT</button>
   	</mat-expansion-panel>
 </mat-accordion>

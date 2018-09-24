@@ -36,6 +36,24 @@ export class PostService {
 		});
 	}
 
+	getPost(id: string) {
+		return this.http.get<{_id: string, un: string, status: string, remark: string}>('http://localhost:3000/api/posts/'+ id); 
+	}
+
+	updatePost(id: string, un: string, status: string, remark: string) {
+		const log: Post = {id: id, un: un, status: status, remark: remark};
+      	console.log(log);
+      	console.log(id);
+		this.http.put('http://localhost:3000/api/posts/'+ id, log)
+			.subscribe(response => {
+				const updatedLogs = [...this.logs];
+				const oldPostIndex = updatedLogs.findIndex(p => p.id === log.id);
+				updatedLogs[oldPostIndex] = log;
+				this.logs = updatedLogs;
+				this.logsUpdated.next([...this.logs]);
+			});
+	}
+
 	getPostUpdateListener(){
 		return this.logsUpdated.asObservable();
 	}

@@ -1,17 +1,17 @@
 <mat-card>
 
-	<form (submit)="onAddAttendence(postLog)" #postLog="ngForm">
+	<form (submit)="onSaveAttendence(postLog)" #postLog="ngForm">
 		<mat-grid-list cols="3" rowHeight="2:1">
 		  	<mat-grid-tile>
 		  		<mat-form-field>
-				    <input matInput placeholder="Add User Name" ngModel name="un" #un="ngModel" required>
+				    <input matInput placeholder="Add User Name" [ngModel]="post?.un" name="un" #un="ngModel" required>
 				    <mat-error *ngIf="un.invalid">Please Add UserName</mat-error>
 				</mat-form-field>
 				<br>
 		  	</mat-grid-tile>
 		  	<mat-grid-tile>
 		  		<mat-form-field>
-				  	<mat-select placeholder="Add Status" ngModel name="status" #status="ngModel" required>
+				  	<mat-select placeholder="Add Status" [ngModel]="post?.status" name="status" #status="ngModel" required>
 				    	<mat-option *ngFor="let status of statusOptions" [value]="status.value">
 				      		{{status.value}}
 				    	</mat-option>
@@ -22,7 +22,7 @@
 		  	</mat-grid-tile>
 		  	<mat-grid-tile>
 			  	<mat-form-field>
-			    	<input matInput placeholder="Add Remark" ngModel name="remark">
+			    	<input matInput placeholder="Add Remark" [ngModel]="post?.remark" name="remark">
 				</mat-form-field>
 				<br>
 		  	</mat-grid-tile>

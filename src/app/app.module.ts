@@ -9,9 +9,11 @@ import { MatInputModule,
 		MatToolbarModule, 
 		MatExpansionModule,
 		MatSelectModule,
-    MatGridListModule } from '@angular/material';
+    MatGridListModule,
+    MatMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
@@ -27,6 +29,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     MatInputModule,
@@ -36,7 +39,8 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     MatExpansionModule,
     MatSelectModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule
   ],
   // providers: [PostService],
   providers: [],
